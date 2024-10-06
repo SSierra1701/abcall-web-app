@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.sign-container {
+  background: var(--silver);
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.change-type-user {
+  background: var(--melon);
+  font-size: small;
+  border-radius: 50px;
+  border-style: none;
+  box-shadow: 5px 5px 5px var(--taupe);
+  border-color: var(--isabelline);
+  padding: 8px;
+  color: var(--taupe);
+  font-weight: bold;
+  width: 70px;
+  cursor: pointer;
+}
+
+.type-on-right {
+  margin-left: -15px;
+}
+
+.type-on-left {
+  z-index: 1;
+  margin-right: -15px;
+}
+
+@media screen and (max-width: 600px) {
+  .change-type-user {
+    padding: 4px;
+    width: 60px;
+  }
+}
