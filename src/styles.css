@@ -1,1 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --pacific-cyan: #4ba3c3;
+  --taupe: #463f3a;
+  --battle-gray: #8a817c;
+  --silver: #bcb8b1;
+  --melon: #e0afa0;
+  --isabelline: #f4f3ee;
+  --lavender: #e7e6f7;
+  --pale-purple: #e3d0d8;
+  --payne-gray: #4d6a6d;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* ----------------- ICONS ------------------------- */
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}

@@ -1,0 +1,11 @@
+<div [ngSwitch]="userTypes[1]" class="sign-container">
+  <button (click)="onSwitchForm(-1)" class="change-type-user type-on-left">
+    {{ userTypes[0] }}
+  </button>
+  <sign-in-form-user-c *ngSwitchCase="'User'"></sign-in-form-user-c>
+  <sign-in-form-client-c *ngSwitchCase="'Client'"></sign-in-form-client-c>
+  <sign-in-form-team-c *ngSwitchCase="'Team'"></sign-in-form-team-c>
+  <button (click)="onSwitchForm(1)" class="change-type-user type-on-right">
+    {{ userTypes[2] }}
+  </button>
+</div>

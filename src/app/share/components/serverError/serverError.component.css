@@ -1,0 +1,16 @@
+.error-section {
+  padding: 10px 10px;
+  background: var(--taupe);
+  border-radius: 10px;
+}
+
+.title {
+  color: var(--isabelline);
+  font-size: medium;
+  font-weight: 500;
+}
+
+.message {
+  color: var(--melon);
+  padding-left: 10px;
+}
