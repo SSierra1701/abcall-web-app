@@ -10,27 +10,33 @@ import { provideClientHydration } from '@angular/platform-browser';
 import { provideStore, provideState } from '@ngrx/store';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { provideEffects } from '@ngrx/effects';
-import * as signUpClientEffect from './sign-up-client/store/signUpClientEffects';
-import * as signInClientEffect from './sign-in-client/store/signInClientEffects';
+import * as signUpUserEffect from './user/sign-up-user/store/signUpUserEffects';
+import * as signUpClientEffect from './client/sign-up-client/store/signUpClientEffects';
+import * as signInClientEffect from './client/sign-in-client/store/signInClientEffects';
 import {
   signUpClientKey,
   signUpClientReducer,
-} from './sign-up-client/store/signUpClientReducer';
+} from './client/sign-up-client/store/signUpClientReducer';
 
 import {
   signInClientKey,
   signInClientReducer,
-} from './sign-in-client/store/signInClientReducer';
+} from './client/sign-in-client/store/signInClientReducer';
 
 import { provideStoreDevtools } from '@ngrx/store-devtools';
+import {
+  signUpUserKey,
+  signUpUserReducer,
+} from './user/sign-up-user/store/signUpUserReducer';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideHttpClient(withFetch()),
     provideStore(),
-    provideEffects(signUpClientEffect, signInClientEffect),
+    provideEffects(signUpClientEffect, signInClientEffect, signUpUserEffect),
     provideState(signInClientKey, signInClientReducer),
     provideState(signUpClientKey, signUpClientReducer),
+    provideState(signUpUserKey, signUpUserReducer),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideClientHydration(),

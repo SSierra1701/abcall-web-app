@@ -1,0 +1,149 @@
+<ng-container *ngIf="data$ | async as data">
+  <div class="sign-up-container">
+    <main *ngIf="data.serverError$" class="error-main">
+      <server-error-c [error]="data.serverError$.message"></server-error-c>
+    </main>
+    <main class="sign-up-main">
+      <form class="sign-up-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <section class="form-section">
+          <label for="name">Name</label>
+          <input
+            class="input-form"
+            type="text"
+            id="name"
+            placeholder="Name"
+            formControlName="name"
+          />
+          <div *ngIf="name?.touched">
+            <p *ngIf="name?.hasError('minlength')" class="error-message">
+              Minimum 6 characters
+            </p>
+            <p *ngIf="name?.hasError('required')" class="error-message">
+              Required
+            </p>
+          </div>
+        </section>
+
+        <section class="form-section">
+          <label for="email">Email</label>
+          <input
+            class="input-form"
+            type="text"
+            id="email"
+            placeholder="email"
+            formControlName="email"
+          />
+          <div *ngIf="email?.touched">
+            <p *ngIf="email?.hasError('email')" class="error-message">
+              Invalid Email
+            </p>
+            <p *ngIf="email?.hasError('required')" class="error-message">
+              Required
+            </p>
+          </div>
+        </section>
+
+        <section class="form-section">
+          <label for="id">Id</label>
+          <input
+            class="input-form"
+            type="text"
+            id="id"
+            placeholder="Id"
+            formControlName="id"
+          />
+          <div *ngIf="id?.touched">
+            <p *ngIf="id?.hasError('minlength')" class="error-message">
+              Minimum 6 characters
+            </p>
+            <p *ngIf="id?.hasError('pattern')" class="error-message">
+              Is numeric
+            </p>
+            <p *ngIf="id?.hasError('required')" class="error-message">
+              Required
+            </p>
+          </div>
+        </section>
+
+        <section class="form-section">
+          <label for="password">Password</label>
+          <input
+            class="input-form"
+            type="text"
+            id="password"
+            placeholder="Password"
+            formControlName="password"
+          />
+          <div *ngIf="password?.touched">
+            <p *ngIf="password?.hasError('minlength')" class="error-message">
+              Minimum 6 characters
+            </p>
+            <p *ngIf="password?.hasError('required')" class="error-message">
+              Required
+            </p>
+          </div>
+        </section>
+
+        <section class="form-section">
+          <label for="cpassword">Confirm Password</label>
+          <input
+            class="input-form"
+            type="text"
+            id="cpassword"
+            placeholder="Password"
+            formControlName="cPassword"
+          />
+          <div *ngIf="cPassword?.touched">
+            <p
+              *ngIf="this.form.errors?.['passwordMatch']"
+              class="error-message"
+            >
+              Passwords don't match
+            </p>
+          </div>
+        </section>
+
+        <section class="form-section">
+          <label for="nit">Company Nit</label>
+          <input
+            class="input-form"
+            type="text"
+            id="nit"
+            placeholder="nit"
+            formControlName="nit"
+          />
+          <div *ngIf="nit?.touched">
+            <p *ngIf="nit?.hasError('minlength')" class="error-message">
+              Minimum 6 characters
+            </p>
+            <p *ngIf="nit?.hasError('pattern')" class="error-message">
+              Is numeric
+            </p>
+            <p *ngIf="nit?.hasError('required')" class="error-message">
+              Required
+            </p>
+          </div>
+        </section>
+
+        <section *ngIf="!data.isLoading$" class="form-section">
+          <button
+            [ngClass]="{
+              'form-section-btn': true,
+              'btn-disable': form.invalid,
+              'btn-enable': form.valid
+            }"
+            type="submit"
+          >
+            Register
+          </button>
+        </section>
+        <section
+          *ngIf="data.isLoading$"
+          class="form-section form-section-loader"
+        >
+          <loader-c></loader-c>
+        </section>
+      </form>
+    </main>
+  </div>
+</ng-container>

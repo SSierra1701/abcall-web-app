@@ -1,0 +1,5 @@
+<ng-container *ngIf="signUpResponse$ | async as response">
+  <main class="main-success">
+    <success-c [url]="''" [message]="response.message"></success-c>
+  </main>
+</ng-container>
