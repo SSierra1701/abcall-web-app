@@ -6,7 +6,7 @@
 .sign-container {
   background: var(--silver);
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
   justify-content: center;
   align-items: center;
 }
@@ -36,7 +36,14 @@
 
 @media screen and (max-width: 600px) {
   .change-type-user {
-    padding: 4px;
+    padding: 1px;
     width: 60px;
+  }
+  .type-on-right {
+    margin-left: -25px;
+  }
+
+  .type-on-left {
+    margin-right: -25px;
   }
 }
