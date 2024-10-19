@@ -34,4 +34,18 @@ export const routes: Routes = [
         (r) => r.userHomeRouters
       ),
   },
+  {
+    path: 'admin',
+    loadChildren: () =>
+      import('./admin/sign-in-admin/config/sign-in-admin.routes').then(
+        (r) => r.signInAdminRoute
+      ),
+  },
+  {
+    path: 'home-admin',
+    loadChildren: () =>
+      import('./admin/home-admin/config/homeAdmin.routes').then(
+        (r) => r.adminHomeRouters
+      ),
+  },
 ];

@@ -43,9 +43,10 @@
           </p>
         </div>
       </section>
-      <section *ngIf="!data.isLoading$" class="form-section-btn">
+      <section *ngIf="!data.isLoading$" class="form-section">
         <button
           [ngClass]="{
+            'form-section-btn': true,
             'btn-disable': form.invalid,
             'btn-enable': form.valid
           }"

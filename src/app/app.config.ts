@@ -14,6 +14,7 @@ import * as signUpUserEffect from './user/sign-up-user/store/signUpUserEffects';
 import * as signUpClientEffect from './client/sign-up-client/store/signUpClientEffects';
 import * as signInClientEffect from './client/sign-in-client/store/signInClientEffects';
 import * as signInUserEffect from './user/sign-in-user/store/signInUserEffects';
+import * as signInAdminEffect from './admin/sign-in-admin/store/signInAdminEffects';
 
 import {
   signUpClientKey,
@@ -34,6 +35,10 @@ import {
   signInUserKey,
   signInUserReducer,
 } from './user/sign-in-user/store/signInUserReducer';
+import {
+  signInAdminKey,
+  signInAdminReducer,
+} from './admin/sign-in-admin/store/signInAdminReducer';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -43,12 +48,14 @@ export const appConfig: ApplicationConfig = {
       signUpClientEffect,
       signInClientEffect,
       signUpUserEffect,
-      signInUserEffect
+      signInUserEffect,
+      signInAdminEffect
     ),
     provideState(signInClientKey, signInClientReducer),
     provideState(signUpClientKey, signUpClientReducer),
     provideState(signUpUserKey, signUpUserReducer),
     provideState(signInUserKey, signInUserReducer),
+    provideState(signInAdminKey, signInAdminReducer),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideClientHydration(),
