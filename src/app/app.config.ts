@@ -13,6 +13,8 @@ import { provideEffects } from '@ngrx/effects';
 import * as signUpUserEffect from './user/sign-up-user/store/signUpUserEffects';
 import * as signUpClientEffect from './client/sign-up-client/store/signUpClientEffects';
 import * as signInClientEffect from './client/sign-in-client/store/signInClientEffects';
+import * as signInUserEffect from './user/sign-in-user/store/signInUserEffects';
+
 import {
   signUpClientKey,
   signUpClientReducer,
@@ -28,15 +30,25 @@ import {
   signUpUserKey,
   signUpUserReducer,
 } from './user/sign-up-user/store/signUpUserReducer';
+import {
+  signInUserKey,
+  signInUserReducer,
+} from './user/sign-in-user/store/signInUserReducer';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideHttpClient(withFetch()),
     provideStore(),
-    provideEffects(signUpClientEffect, signInClientEffect, signUpUserEffect),
+    provideEffects(
+      signUpClientEffect,
+      signInClientEffect,
+      signUpUserEffect,
+      signInUserEffect
+    ),
     provideState(signInClientKey, signInClientReducer),
     provideState(signUpClientKey, signUpClientReducer),
     provideState(signUpUserKey, signUpUserReducer),
+    provideState(signInUserKey, signInUserReducer),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideClientHydration(),

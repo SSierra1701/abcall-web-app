@@ -2,10 +2,10 @@ import { inject } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { SingInUserService } from '../services/signInUser.service';
 import { signInUserActions } from './signInUserActions';
-import { catchError, map, of, switchMap } from 'rxjs';
+import { catchError, map, of, switchMap, tap } from 'rxjs';
 import { SignInUserResponseI } from '../types/signInUserResponseI';
 import { HttpErrorResponse } from '@angular/common/http';
-import { signInClientActions } from '../../../client/sign-in-client/store/signInClientActions';
+import { Router } from '@angular/router';
 
 export const signInUserEffect = createEffect(
   (actions$ = inject(Actions), signInService = inject(SingInUserService)) => {
@@ -18,13 +18,26 @@ export const signInUserEffect = createEffect(
           }),
           catchError((httpError: HttpErrorResponse) => {
             return of(
-              signInClientActions.signInFailed({
-                error: httpError.error.errors,
+              signInUserActions.signInFailed({
+                error: httpError.error,
               })
             );
           })
         );
       })
     );
-  }
+  },
+  { functional: true }
+);
+
+export const redirectAfterSignIn = createEffect(
+  (actions$ = inject(Actions), router = inject(Router)) => {
+    return actions$.pipe(
+      ofType(signInUserActions.signInSucceeded),
+      tap(() => {
+        router.navigateByUrl('/home-user/pqr');
+      })
+    );
+  },
+  { functional: true, dispatch: false }
 );

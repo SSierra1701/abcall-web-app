@@ -14,7 +14,7 @@ export class SingInClientService {
 
   signIn(request: SignInClientRequestI): Observable<SignInClientResponseI> {
     return this.httpClient.post<SignInClientResponseI>(
-      `${this.apiUrl}/api/v1/sign-in`,
+      `${this.apiUrl}/client/api/v1/sign-in`,
       request
     );
   }

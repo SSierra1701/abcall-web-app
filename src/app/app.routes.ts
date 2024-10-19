@@ -27,4 +27,11 @@ export const routes: Routes = [
         (r) => r.clientHomeRouters
       ),
   },
+  {
+    path: 'home-user',
+    loadChildren: () =>
+      import('./user/home-user/config/homeUser.routes').then(
+        (r) => r.userHomeRouters
+      ),
+  },
 ];

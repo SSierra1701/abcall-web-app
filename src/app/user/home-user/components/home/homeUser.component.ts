@@ -14,13 +14,13 @@ export class HomeUserComponent {
   barItems: LeftBarItemI[] = [
     {
       routeLink: 'pqr',
-      icon: 'query_stats',
+      icon: 'mail',
       label: 'PQRs',
     },
     {
       routeLink: 'create-pqr',
-      icon: 'bar_chart',
-      label: 'Add PQR',
+      icon: 'add_circle',
+      label: 'Generate PQR',
     },
   ];
 }
