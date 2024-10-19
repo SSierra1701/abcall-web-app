@@ -7,7 +7,6 @@
   font-family: "Tahoma", sans-serif;
   padding: 30px 50px;
   max-width: 350px;
-  max-height: 350px;
   background: var(--isabelline);
   border-radius: 8px;
   scrollbar-color: var(--pacific-cyan);
@@ -27,17 +26,9 @@
 }
 
 .form-section-btn {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 15px;
-  margin-top: 15px;
-}
-
-.form-section-btn button {
+  margin-top: 5px;
   font-size: large;
   height: 35px;
-  background: var(--taupe);
-  color: var(--isabelline);
   border-radius: 10px;
   border-style: none;
 }
@@ -100,7 +91,6 @@
 .btn-disable {
   background: var(--taupe);
   color: var(--isabelline);
-  cursor: pointer;
 }
 
 .btn-enable {
