@@ -1,0 +1,8 @@
+<ng-container *ngIf="signUpResponse$ | async as response">
+  <main class="main-success">
+    <success-c
+      [url]="'home-admin/create-team'"
+      [message]="response.message"
+    ></success-c>
+  </main>
+</ng-container>
