@@ -1,30 +1,31 @@
 import { inject } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { SingInAdminService } from '../services/signInAdmin.service';
-import { signInAdminActions } from './signInAdminActions';
+import { SignUpTeamService } from '../services/signUpTeam.service';
+import { signUpTeamActions } from './signUpTeamActions';
 import { catchError, map, of, switchMap, tap } from 'rxjs';
-import { SignInAdminResponseI } from '../types/signInAdminResponseI';
+import { SignUpTeamResponseI } from '../types/signUpTeamResponseI';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { PersistanceService } from '../../../share/services/persistance.service';
 
-export const signInAdminEffect = createEffect(
+export const signUpTeamEffect = createEffect(
   (
     actions$ = inject(Actions),
-    signInService = inject(SingInAdminService),
+    signUpService = inject(SignUpTeamService),
     persistanceService = inject(PersistanceService)
   ) => {
     return actions$.pipe(
-      ofType(signInAdminActions.signIn),
+      ofType(signUpTeamActions.signUp),
       switchMap(({ request }) => {
-        return signInService.signIn(request).pipe(
-          map((response: SignInAdminResponseI) => {
-            persistanceService.set('token', response.token);
-            return signInAdminActions.signInSucceeded({ response: response });
+        const token = persistanceService.get('token');
+        return signUpService.signUp(request, token).pipe(
+          map((response: SignUpTeamResponseI) => {
+            return signUpTeamActions.signUpSucceeded({ response });
           }),
           catchError((httpError: HttpErrorResponse) => {
             return of(
-              signInAdminActions.signInFailed({
+              signUpTeamActions.signUpFailed({
                 error: httpError.error,
               })
             );
@@ -36,12 +37,12 @@ export const signInAdminEffect = createEffect(
   { functional: true }
 );
 
-export const redirectAfterSignIn = createEffect(
+export const redirectAfterSignUp = createEffect(
   (actions$ = inject(Actions), router = inject(Router)) => {
     return actions$.pipe(
-      ofType(signInAdminActions.signInSucceeded),
+      ofType(signUpTeamActions.signUpSucceeded),
       tap(() => {
-        router.navigateByUrl('/home-admin/create-team');
+        router.navigateByUrl('home-admin/create-team/success');
       })
     );
   },
