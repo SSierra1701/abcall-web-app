@@ -1,11 +1,11 @@
 import { inject } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { SingInTeamService } from '../services/signInTeam.service';
-import { signInTeamActions } from './signInTeamActions';
-import { catchError, map, of, switchMap } from 'rxjs';
+import { catchError, map, of, switchMap, tap } from 'rxjs';
 import { SignInTeamResponseI } from '../types/signInTeamResponseI';
 import { HttpErrorResponse } from '@angular/common/http';
-import { signInClientActions } from '../../client/sign-in-client/store/signInClientActions';
+import { signInTeamActions } from './signInTeamActions';
+import { Router } from '@angular/router';
 
 export const signInTeamEffect = createEffect(
   (actions$ = inject(Actions), signInService = inject(SingInTeamService)) => {
@@ -18,13 +18,26 @@ export const signInTeamEffect = createEffect(
           }),
           catchError((httpError: HttpErrorResponse) => {
             return of(
-              signInClientActions.signInFailed({
-                error: httpError.error.errors,
+              signInTeamActions.signInFailed({
+                error: httpError.error,
               })
             );
           })
         );
       })
     );
-  }
+  },
+  { functional: true }
+);
+
+export const redirectAfterSignIn = createEffect(
+  (actions$ = inject(Actions), router = inject(Router)) => {
+    return actions$.pipe(
+      ofType(signInTeamActions.signInSucceeded),
+      tap(() => {
+        router.navigateByUrl('/home-team/resolve-pqr');
+      })
+    );
+  },
+  { functional: true, dispatch: false }
 );

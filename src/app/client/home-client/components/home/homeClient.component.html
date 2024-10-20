@@ -1,4 +1,8 @@
-<div class="home-client-main">
-  <left-bar-c [items]="barItems"></left-bar-c>
-  <router-outlet class="indicators-main" />
+<left-bar-c
+  [items]="barItems"
+  (sideBarOutput)="updateLeftPosition($event)"
+></left-bar-c>
+
+<div class="main-content" [style.left.px]="leftPosition()">
+  <router-outlet />
 </div>

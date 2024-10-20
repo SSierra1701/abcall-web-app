@@ -9,7 +9,7 @@ const initialState: SignInTeamStateI = {
   serverError: null,
 };
 
-const signInClientFeature = createFeature({
+const signInTeamFeature = createFeature({
   name: 'sign-in-team-reducer',
   reducer: createReducer(
     initialState,
@@ -22,11 +22,13 @@ const signInClientFeature = createFeature({
       ...state,
       isLoading: false,
       isSubmitting: false,
+      serverSuccess: action.response,
     })),
     on(signInTeamActions.signInFailed, (state, action) => ({
       ...state,
       isLoading: false,
       isSubmitting: false,
+      serverError: action.error,
     }))
   ),
 });
@@ -38,4 +40,4 @@ export const {
   selectIsLoading,
   selectServerSuccess,
   selectServerError,
-} = signInClientFeature;
+} = signInTeamFeature;

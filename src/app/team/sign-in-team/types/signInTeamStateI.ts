@@ -1,4 +1,4 @@
-import { ServerErrorI } from '../../share/types/ServerErrorI';
+import { ServerErrorI } from '../../../share/types/ServerErrorI';
 import { SignInTeamResponseI } from './signInTeamResponseI';
 
 export interface SignInTeamStateI {

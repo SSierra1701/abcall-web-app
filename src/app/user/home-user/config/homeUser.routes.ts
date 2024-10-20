@@ -5,12 +5,12 @@ import { PqrUserComponent } from '../../pqr/components/pqr-view/pqr-user.compone
 export const userHomeRouters: Route[] = [
   {
     path: '',
-    title: 'home',
+    title: 'Home',
     component: HomeUserComponent,
     children: [
       {
         path: 'pqr',
-        title: 'pqr',
+        title: 'Pqr',
         component: PqrUserComponent,
       },
     ],

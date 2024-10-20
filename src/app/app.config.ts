@@ -16,6 +16,7 @@ import * as signInClientEffect from './client/sign-in-client/store/signInClientE
 import * as signInUserEffect from './user/sign-in-user/store/signInUserEffects';
 import * as signInAdminEffect from './admin/sign-in-admin/store/signInAdminEffects';
 import * as signUpTeamEffect from './admin/create-team/store/signUpTeamEffects';
+import * as signInTeamEffect from './team/sign-in-team/store/signInTeamEffects';
 
 import {
   signUpClientKey,
@@ -48,6 +49,10 @@ import {
   signUpTeamKey,
   signUpTeamReducer,
 } from './admin/create-team/store/signUpTeamReducer';
+import {
+  signInTeamKey,
+  signInTeamReducer,
+} from './team/sign-in-team/store/signInTeamReducer';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -59,7 +64,8 @@ export const appConfig: ApplicationConfig = {
       signUpUserEffect,
       signInUserEffect,
       signInAdminEffect,
-      signUpTeamEffect
+      signUpTeamEffect,
+      signInTeamEffect
     ),
     provideState(signInClientKey, signInClientReducer),
     provideState(signUpClientKey, signUpClientReducer),
@@ -68,6 +74,7 @@ export const appConfig: ApplicationConfig = {
     provideState(signInAdminKey, signInAdminReducer),
     provideState(adminHomeKey, adminHomeReducer),
     provideState(signUpTeamKey, signUpTeamReducer),
+    provideState(signInTeamKey, signInTeamReducer),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideClientHydration(),

@@ -11,13 +11,13 @@ import { LeftBarItemI } from '../../../../share/types/leftBarItemI';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'home-client-c',
-  templateUrl: './homeClient.component.html',
-  styleUrl: './homeClient.component.css',
+  selector: 'home-team-c',
+  templateUrl: './homeTeam.component.html',
+  styleUrl: './homeTeam.component.css',
   standalone: true,
   imports: [RouterOutlet, LeftBarComponent, CommonModule],
 })
-export class HomeClientComponent {
+export class HomeTeamComponent {
   leftPosition = signal<number>(50);
 
   updateLeftPosition(position: number) {
@@ -26,14 +26,9 @@ export class HomeClientComponent {
 
   barItems: LeftBarItemI[] = [
     {
-      routeLink: 'control-board',
-      icon: 'bx bx-scatter-chart',
-      label: 'Control Board',
-    },
-    {
-      routeLink: 'indicators',
-      icon: 'bx bx-line-chart',
-      label: 'Indicators',
+      routeLink: 'resolve-pqr',
+      icon: 'bx bx-book-bookmark',
+      label: 'Resolve PQR',
     },
   ];
 }

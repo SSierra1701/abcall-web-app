@@ -11,10 +11,15 @@ import { LeftBarItemI } from '../../../../share/types/leftBarItemI';
   imports: [RouterOutlet, LeftBarComponent],
 })
 export class HomeAdminComponent {
+  leftPosition = signal<number>(50);
+
+  updateLeftPosition(position: number) {
+    this.leftPosition.set(position);
+  }
   barItems: LeftBarItemI[] = [
     {
       routeLink: 'create-team',
-      icon: 'add_circle',
+      icon: 'bx bxs-book-add',
       label: 'Create team',
     },
   ];
