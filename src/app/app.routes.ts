@@ -35,6 +35,13 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'home-team',
+    loadChildren: () =>
+      import('./team/home-team/config/homeTeam.routes').then(
+        (r) => r.teamHomeRouters
+      ),
+  },
+  {
     path: 'admin',
     loadChildren: () =>
       import('./admin/sign-in-admin/config/sign-in-admin.routes').then(

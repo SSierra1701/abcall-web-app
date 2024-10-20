@@ -11,15 +11,21 @@ import { LeftBarItemI } from '../../../../share/types/leftBarItemI';
   imports: [RouterOutlet, LeftBarComponent],
 })
 export class HomeUserComponent {
+  leftPosition = signal<number>(50);
+
+  updateLeftPosition(position: number) {
+    this.leftPosition.set(position);
+  }
+
   barItems: LeftBarItemI[] = [
     {
       routeLink: 'pqr',
-      icon: 'mail',
+      icon: 'bx bx-mail-send',
       label: 'PQRs',
     },
     {
       routeLink: 'create-pqr',
-      icon: 'add_circle',
+      icon: 'bx bxs-message-rounded-add',
       label: 'Generate PQR',
     },
   ];

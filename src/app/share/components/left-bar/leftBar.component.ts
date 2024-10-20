@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, input, output } from '@angular/core';
+import { Component, Input, OnInit, input, output, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { LeftBarItemI } from '../../types/leftBarItemI';
 
@@ -13,9 +13,15 @@ import { LeftBarItemI } from '../../types/leftBarItemI';
 export class LeftBarComponent {
   @Input() items?: LeftBarItemI[];
 
-  isCollapsed = true;
+  isActive = signal<boolean>(false);
+  sideBarOutput = output<number>();
 
-  toggleCollapse(): void {
-    this.isCollapsed = !this.isCollapsed;
+  updatePosition(): void {
+    this.isActive.set(!this.isActive());
+    if (this.isActive()) {
+      this.sideBarOutput.emit(250);
+    } else {
+      this.sideBarOutput.emit(50);
+    }
   }
 }

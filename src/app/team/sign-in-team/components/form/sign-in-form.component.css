@@ -26,17 +26,9 @@
 }
 
 .form-section-btn {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 15px;
-  margin-top: 15px;
-}
-
-.form-section-btn button {
+  margin-top: 5px;
   font-size: large;
   height: 35px;
-  background: var(--taupe);
-  color: var(--isabelline);
   border-radius: 10px;
   border-style: none;
 }
@@ -83,8 +75,41 @@
   margin-right: -15px;
 }
 
+.error-main {
+  display: flex;
+  flex-direction: column;
+  width: 360px;
+  margin-bottom: 10px;
+}
+
+.error-message {
+  font-size: small;
+  color: blueviolet;
+  font-weight: bold;
+}
+
+.btn-disable {
+  background: var(--taupe);
+  color: var(--isabelline);
+}
+
+.btn-enable {
+  background: var(--melon);
+  color: var(--taupe);
+  cursor: pointer;
+}
+
+.form-section-loader {
+  margin-top: 10px;
+  align-items: center;
+}
+
 @media screen and (max-width: 600px) {
   .sign-in-main {
     max-width: 200px;
+  }
+
+  .error-main {
+    width: 350px;
   }
 }
