@@ -1,3 +1,3 @@
 export const environment = {
-  backendUrl: 'http://20.106.211.254',
+  backendUrl: 'http://20.106.211.254:80',
 };
