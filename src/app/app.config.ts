@@ -10,27 +10,71 @@ import { provideClientHydration } from '@angular/platform-browser';
 import { provideStore, provideState } from '@ngrx/store';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { provideEffects } from '@ngrx/effects';
-import * as signUpClientEffect from './sign-up-client/store/signUpClientEffects';
-import * as signInClientEffect from './sign-in-client/store/signInClientEffects';
+import * as signUpUserEffect from './user/sign-up-user/store/signUpUserEffects';
+import * as signUpClientEffect from './client/sign-up-client/store/signUpClientEffects';
+import * as signInClientEffect from './client/sign-in-client/store/signInClientEffects';
+import * as signInUserEffect from './user/sign-in-user/store/signInUserEffects';
+import * as signInAdminEffect from './admin/sign-in-admin/store/signInAdminEffects';
+import * as signUpTeamEffect from './admin/create-team/store/signUpTeamEffects';
+import * as signInTeamEffect from './team/sign-in-team/store/signInTeamEffects';
+
 import {
   signUpClientKey,
   signUpClientReducer,
-} from './sign-up-client/store/signUpClientReducer';
+} from './client/sign-up-client/store/signUpClientReducer';
 
 import {
   signInClientKey,
   signInClientReducer,
-} from './sign-in-client/store/signInClientReducer';
+} from './client/sign-in-client/store/signInClientReducer';
 
 import { provideStoreDevtools } from '@ngrx/store-devtools';
+import {
+  signUpUserKey,
+  signUpUserReducer,
+} from './user/sign-up-user/store/signUpUserReducer';
+import {
+  signInUserKey,
+  signInUserReducer,
+} from './user/sign-in-user/store/signInUserReducer';
+import {
+  signInAdminKey,
+  signInAdminReducer,
+} from './admin/sign-in-admin/store/signInAdminReducer';
+import {
+  adminHomeKey,
+  adminHomeReducer,
+} from './admin/home-admin/store/adminHomeReducer';
+import {
+  signUpTeamKey,
+  signUpTeamReducer,
+} from './admin/create-team/store/signUpTeamReducer';
+import {
+  signInTeamKey,
+  signInTeamReducer,
+} from './team/sign-in-team/store/signInTeamReducer';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideHttpClient(withFetch()),
     provideStore(),
-    provideEffects(signUpClientEffect, signInClientEffect),
+    provideEffects(
+      signUpClientEffect,
+      signInClientEffect,
+      signUpUserEffect,
+      signInUserEffect,
+      signInAdminEffect,
+      signUpTeamEffect,
+      signInTeamEffect
+    ),
     provideState(signInClientKey, signInClientReducer),
     provideState(signUpClientKey, signUpClientReducer),
+    provideState(signUpUserKey, signUpUserReducer),
+    provideState(signInUserKey, signInUserReducer),
+    provideState(signInAdminKey, signInAdminReducer),
+    provideState(adminHomeKey, adminHomeReducer),
+    provideState(signUpTeamKey, signUpTeamReducer),
+    provideState(signInTeamKey, signInTeamReducer),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideClientHydration(),

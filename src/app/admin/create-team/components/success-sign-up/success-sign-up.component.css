@@ -1,0 +1,13 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.main-success {
+  max-width: 50%;
+  margin-top: 10px;
+  margin-left: 10px;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+}

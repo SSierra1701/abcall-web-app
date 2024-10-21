@@ -1,26 +1,20 @@
-<div class="sidenav" [ngClass]="isCollapsed ? 'sidenav-collapsed' : ''">
-  <div class="logo-container">
-    <button class="logo" (click)="toggleCollapse()">
-      <span class="material-symbols-outlined">menu </span>
-    </button>
-  </div>
-  <div class="sidenav-nav">
-    @for (item of items; track $index) {
-    <li class="sidenav-nav-item">
-      <a
-        class="sidenav-nav-link"
-        [routerLink]="item.routeLink"
-        routerLinkActive="active"
-        [routerLinkActiveOptions]="{ exact: true }"
-      >
-        <span class="material-symbols-outlined sidenav-link-icon"
-          >{{ item.icon }}
-        </span>
-        @if (!isCollapsed) {
-        <span class="sidenav-link-text">{{ item.label }}</span>
-        }
+<nav
+  [ngClass]="{
+    sidebar: true,
+    active: isActive()
+  }"
+>
+  <section class="top">
+    <div class="logo">
+      <i (click)="updatePosition()" class="bx bx-menu menu"></i>
+    </div>
+  </section>
+  <ul>
+    <li *ngFor="let item of items">
+      <a [routerLink]="item.routeLink" routerLinkActive="nav-item-active">
+        <i class="{{ item.icon }}"></i>
+        <span class="nav-item">{{ item.label }}</span>
       </a>
     </li>
-    }
-  </div>
-</div>
+  </ul>
+</nav>

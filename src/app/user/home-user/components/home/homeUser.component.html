@@ -1,0 +1,8 @@
+<left-bar-c
+  [items]="barItems"
+  (sideBarOutput)="updateLeftPosition($event)"
+></left-bar-c>
+
+<div class="main-content" [style.left.px]="leftPosition()">
+  <router-outlet />
+</div>

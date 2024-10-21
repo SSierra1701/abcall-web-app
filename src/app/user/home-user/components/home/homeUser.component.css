@@ -1,0 +1,12 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.main-content {
+  position: relative;
+  min-height: 100vh;
+  top: 0;
+  transition: all 0.5s ease;
+  max-width: 100%;
+}

@@ -1,0 +1,66 @@
+<ng-container *ngIf="data$ | async as data">
+  <main *ngIf="data.serverError$" class="error-main">
+    <server-error-c [error]="data.serverError$.message"></server-error-c>
+  </main>
+  <main class="sign-in-main">
+    <form class="sign-in-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <section class="form-section user-section">
+        <h1>Client</h1>
+      </section>
+      <section class="form-section">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Email"
+          formControlName="email"
+        />
+        <div *ngIf="email?.touched">
+          <p *ngIf="email?.hasError('email')" class="error-message">
+            Invalid Email
+          </p>
+          <p *ngIf="email?.hasError('required')" class="error-message">
+            Required
+          </p>
+        </div>
+      </section>
+      <section class="form-section">
+        <label for="password">Password</label>
+        <input
+          type="text"
+          name="password"
+          id="password"
+          placeholder="Password"
+          formControlName="password"
+        />
+        <div *ngIf="password?.touched">
+          <p *ngIf="password?.hasError('minlength')" class="error-message">
+            Minimum 6 characters
+          </p>
+          <p *ngIf="password?.hasError('required')" class="error-message">
+            Required
+          </p>
+        </div>
+      </section>
+      <section *ngIf="!data.isLoading$" class="form-section">
+        <button
+          [ngClass]="{
+            'form-section-btn': true,
+            'btn-disable': form.invalid,
+            'btn-enable': form.valid
+          }"
+          type="submit"
+        >
+          Sign In
+        </button>
+      </section>
+      <section *ngIf="data.isLoading$" class="form-section form-section-loader">
+        <loader-c></loader-c>
+      </section>
+    </form>
+    <p class="sign-up-btn">
+      <a [routerLink]="['/sign-up/client']">Sign up</a>
+    </p>
+  </main>
+</ng-container>

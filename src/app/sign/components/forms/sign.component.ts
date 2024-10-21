@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { SignInClientFormComponent } from '../../../sign-in-client/components/form/sign-in-form.component';
-import { SignInTeamFormComponent } from '../../../sign-in-team/components/form/sign-in-form.component';
-import { SignInUserFormComponent } from '../../../sign-in-user/components/form/sign-in-form.component';
+import { SignInClientFormComponent } from '../../../client/sign-in-client/components/form/sign-in-form.component';
+import { SignInUserFormComponent } from '../../../user/sign-in-user/components/form/sign-in-form.component';
+import { SignInTeamFormComponent } from '../../../team/sign-in-team/components/form/sign-in-form.component';
 
 @Component({
   selector: 'sign-c',
