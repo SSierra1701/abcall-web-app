@@ -5,8 +5,63 @@
 
 .main-content {
   position: relative;
-  min-height: 100vh;
+  min-height: calc(100vh - 60px); /* Total de la altura de la ventana menos la altura del footer */
   top: 0;
   transition: all 0.5s ease;
-  max-width: 100%;
+  max-width: 80%;
+  padding-bottom: 60px; /* Espacio inferior igual a la altura del footer */
+
+}
+
+/* Estilos del encabezado */
+.header {
+  position: fixed;
+  top: 0;
+  left: 60px; /* Empieza donde termina la barra de navegación */
+  right: 0;
+  height: 60px;
+  background-color: #463F3A;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  transition: left 0.4s ease; /* Transición suave para cuando la barra cambia de tamaño */
+}
+
+.sidebar.active ~ .header {
+  left: 250px; /* Ancho de la barra cuando está expandida */
+}
+
+/* Contenido del encabezado */
+.header-content {
+  display: flex;
+  align-items: center;
+}
+
+.logo-header {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.header-title {
+  font-size: 1.5rem;
+  color: #f4ede1;
+  font-weight: bold;
+}
+
+.logout-btn {
+  background-color: #6f6763;
+  color: #f4ede1;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: #7d736c;
 }

@@ -4,46 +4,43 @@
 }
 
 .sign-container {
-  background: var(--silver);
+  background: #D3C4A4;
   display: flex;
+  flex-direction: column;
   min-height: 100vh;
   justify-content: center;
   align-items: center;
+  padding: 20px;
 }
 
-.change-type-user {
-  background: var(--melon);
-  font-size: small;
-  border-radius: 50px;
-  border-style: none;
-  box-shadow: 5px 5px 5px var(--taupe);
-  border-color: var(--isabelline);
-  padding: 8px;
-  color: var(--taupe);
+.nav {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  gap: 15px;
+}
+
+.nav-item {
+  list-style: none;
+}
+
+.nav-link {
+  background-color: #463F3A;
+  color: #F4F3EE;
+  font-size: 16px;
   font-weight: bold;
-  width: 70px;
+  padding: 10px 20px;
+  text-align: center;
+  transition: all 0.3s ease;
   cursor: pointer;
+  border: none;
 }
 
-.type-on-right {
-  margin-left: -15px;
+.nav-link:hover,
+.nav-link.active {
+  background-color: #A67A5B;
+  color: #FFFFFF;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-.type-on-left {
-  z-index: 1;
-  margin-right: -15px;
-}
 
-@media screen and (max-width: 600px) {
-  .change-type-user {
-    padding: 1px;
-    width: 60px;
-  }
-  .type-on-right {
-    margin-left: -25px;
-  }
-
-  .type-on-left {
-    margin-right: -25px;
-  }
-}

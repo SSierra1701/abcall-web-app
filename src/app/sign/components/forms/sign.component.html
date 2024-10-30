@@ -1,11 +1,26 @@
-<div [ngSwitch]="userTypes[1]" class="sign-container">
-  <button (click)="onSwitchForm(-1)" class="change-type-user type-on-left">
-    {{ userTypes[0] }}
-  </button>
-  <sign-in-form-user-c *ngSwitchCase="'User'"></sign-in-form-user-c>
-  <sign-in-form-client-c *ngSwitchCase="'Client'"></sign-in-form-client-c>
-  <sign-in-form-team-c *ngSwitchCase="'Team'"></sign-in-form-team-c>
-  <button (click)="onSwitchForm(1)" class="change-type-user type-on-right">
-    {{ userTypes[2] }}
-  </button>
+<div class="sign-container">
+  <ul class="nav nav-pills nav-justified mb-3" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" (click)="onSwitchForm(0)">
+        {{ userTypes[1] }}
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" (click)="onSwitchForm(-1)">
+        {{ userTypes[0] }}
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" (click)="onSwitchForm(1)">
+        {{ userTypes[2] }}
+      </button>
+    </li>
+  </ul>
+
+  <!-- Contenedor para los formularios según el tipo de usuario -->
+  <ng-container [ngSwitch]="userTypes[1]">
+    <sign-in-form-user-c *ngSwitchCase="'User'"></sign-in-form-user-c>
+    <sign-in-form-client-c *ngSwitchCase="'Client'"></sign-in-form-client-c>
+    <sign-in-form-team-c *ngSwitchCase="'Team'"></sign-in-form-team-c>
+  </ng-container>
 </div>

@@ -1,66 +1,73 @@
 <ng-container *ngIf="data$ | async as data">
-  <main *ngIf="data.serverError$" class="error-main">
-    <server-error-c [error]="data.serverError$.message"></server-error-c>
-  </main>
-  <main class="sign-in-main">
-    <form class="sign-in-form" [formGroup]="form" (ngSubmit)="onSubmit()">
-      <section class="form-section user-section">
-        <h1>User</h1>
-      </section>
-      <section class="form-section">
-        <label for="email">Email</label>
-        <input
-          type="email"
-          name="email"
-          id="email"
-          placeholder="Email"
-          formControlName="email"
-        />
-        <div *ngIf="email?.touched">
-          <p *ngIf="email?.hasError('email')" class="error-message">
-            Invalid Email
-          </p>
-          <p *ngIf="email?.hasError('required')" class="error-message">
-            Required
-          </p>
+  <section class="sign-in-container">
+    <div class="px-4 py-5 px-md-5 text-center text-lg-start" style="background-color: #463F3A; border-radius: 15px;">
+      <div class="container">
+        <div class="row gx-lg-5 align-items-center">
+          <div class="col-lg-6 mb-5 mb-lg-0">
+            <h1 class="custom-header my-4 display-5 fw-bold ls-tight">
+              Welcome to AbCall! <br />
+              <span class="subtext">The best automated PQR system</span>
+            </h1>
+            <p style="color: hsl(0, 0%, 100%)">
+              Sign up and login as an user and enjoy: <br>
+              ◘ Create and list PQRs.<br>
+              ◘ PQR's status.<br>
+              ◘ PQRs history.<br>
+              ◘ Automated support.
+            </p>
+          </div>
+
+          <div class="col-lg-6 mb-5 mb-lg-0">
+            <div *ngIf="data.serverError$" class="error-main">
+              <server-error-c [error]="data.serverError$.message"></server-error-c>
+            </div>
+
+            <div class="card">
+              <div class="card-body py-5 px-md-5">
+                <h2 class="form-text fw-bold mb-2 text-uppercase">Login</h2>
+                <p class="form-text mb-5">Please enter your email and password!</p>
+
+                <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                  <section class="form-outline form-white mb-4">
+                    <input type="email" id="typeEmailX" class="form-control form-control-lg" formControlName="email" placeholder="" />
+                    <label class="text-under form-text form-label" for="typeEmailX">Email</label>
+                    <div *ngIf="email?.touched">
+                      <p *ngIf="email?.hasError('email')" class="error-message text-danger">Invalid Email</p>
+                      <p *ngIf="email?.hasError('required')" class="error-message text-danger">Required</p>
+                    </div>
+                  </section>
+
+                  <section class="form-outline form-white mb-4">
+                    <input type="password" id="typePasswordX" class="form-control form-control-lg" formControlName="password" placeholder="" />
+                    <label class="form-text form-label" for="typePasswordX">Password</label>
+                    <div *ngIf="password?.touched">
+                      <p *ngIf="password?.hasError('minlength')" class="error-message text-danger">Minimum 6 characters</p>
+                      <p *ngIf="password?.hasError('required')" class="error-message text-danger">Required</p>
+                    </div>
+                  </section>
+
+                  <button [ngClass]="{'btn-disable': form.invalid, 'btn-enable': form.valid}" data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-light btn-lg px-5" type="submit">
+                    Login
+                  </button>
+
+                  <div *ngIf="data.isLoading$" class="form-section form-section-loader mt-4">
+                    <loader-c></loader-c>
+                  </div>
+                </form>
+
+                <div class="d-flex justify-content-center text-center mt-4 pt-1">
+                  <a href="#!" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
+                  <a href="#!" class="text-white"><i class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
+                  <a href="#!" class="text-white"><i class="fab fa-google fa-lg"></i></a>
+                </div>
+
+                <p class="form-text mb-0">Don't have an account? <a [routerLink]="['/sign-up/user']" class="form-text fw-bold">Sign Up</a></p>
+              </div>
+            </div>
+          </div>
         </div>
-      </section>
-      <section class="form-section">
-        <label for="password">Password</label>
-        <input
-          type="text"
-          name="password"
-          id="password"
-          placeholder="Password"
-          formControlName="password"
-        />
-        <div *ngIf="password?.touched">
-          <p *ngIf="password?.hasError('minlength')" class="error-message">
-            Minimum 6 characters
-          </p>
-          <p *ngIf="password?.hasError('required')" class="error-message">
-            Required
-          </p>
-        </div>
-      </section>
-      <section *ngIf="!data.isLoading$" class="form-section">
-        <button
-          [ngClass]="{
-            'form-section-btn': true,
-            'btn-disable': form.invalid,
-            'btn-enable': form.valid
-          }"
-          type="submit"
-        >
-          Sign In
-        </button>
-      </section>
-      <section *ngIf="data.isLoading$" class="form-section form-section-loader">
-        <loader-c></loader-c>
-      </section>
-    </form>
-    <p class="sign-up-btn">
-      <a [routerLink]="['/sign-up/user']">Sign up</a>
-    </p>
-  </main>
+      </div>
+    </div>
+  </section>
 </ng-container>
+

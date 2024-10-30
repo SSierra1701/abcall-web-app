@@ -1,98 +1,207 @@
+/* Reset de márgenes y padding */
 * {
   margin: 0;
   padding: 0;
 }
 
-.main-container {
-  background: var(--silver);
-  display: flex;
-  flex-direction: column;
+/* Estilos para el contenedor principal */
+.vh-100 {
   min-height: 100vh;
-  justify-content: center;
-  align-items: center;
+}
+.custom-header {
+  margin-bottom: 23rem; /* Ajusta según el espacio deseado */
+  color: white;
+}
+/* Fondo de la sección y centrar el contenido */
+.subtext {
+  color: #bcb8b1 ;
 }
 
-.sign-in-main {
-  font-family: "Tahoma", sans-serif;
-  padding: 30px 50px;
-  max-width: 350px;
-  max-height: 350px;
-  background: var(--lavender);
-  border-radius: 8px;
-  flex: 1;
+/* Estilos de la tarjeta de login */
+.card {
+  background-color: #D6D5CF ;
+  border-radius: 1rem;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-.sign-in-form {
-  display: flex;
-  flex-direction: column;
-  max-width: 500px;
+.form-text {
+  color: #463F3A !important; 
 }
 
-.form-section {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 15px;
+.form-label{
+  font-size: 1rem !important;
 }
 
-.form-section-btn {
-  margin-top: 10px;
-  font-size: large;
-  height: 35px;
-  border-radius: 10px;
-  border-style: none;
-}
-
-.btn-disable {
-  background: var(--taupe);
-  color: var(--isabelline);
-  cursor: pointer;
-}
-
-.btn-enable {
-  background: var(--melon);
-  color: var(--taupe);
-  cursor: pointer;
-}
-
-.user-section {
+/* Estilos para el cuerpo de la tarjeta */
+.card-body {
+  padding: 2.5rem;
   text-align: center;
 }
 
-.form-section label {
-  font-size: large;
+/* Estilos para encabezados y texto */
+.card-body h2 {
+  color: #eaeaea;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
 }
 
-.form-section input {
-  font-size: large;
-  border-radius: 5px;
-  margin-top: 8px;
-  padding: 10px 20px;
+.card-body p {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1.5rem;
 }
 
-.error-main {
-  display: flex;
-  flex-direction: column;
-  width: 360px;
-  margin-bottom: 10px;
+/* Estilos mejorados para los inputs */
+.form-outline {
+  position: relative;
+  margin-bottom: 1.5rem;
 }
 
+.form-outline input {
+  background-color: #D6D5CF; /* Fondo del input */
+  color: #463F3A; /* Color del texto */
+  border: 2px solid #463F3A; /* Borde del input (visible detrás del texto) */
+  border-radius: 0.5rem; /* Bordes redondeados */
+  padding: 0.75rem; /* Espaciado interno */
+  transition: all 0.3s ease; /* Transición suave */
+  font-size: 1rem; /* Tamaño de fuente */
+  width: 100%; /* Ancho completo */
+  position: relative; /* Necesario para el pseudo-elemento del borde */
+  z-index: 1; /* Asegurarse de que el input esté por encima del borde */
+}
+
+/* Estilos al enfocar el input */
+.form-outline input:focus {
+  border-color: #A67A5B; /* Color del borde al enfocar (más vibrante) */
+  background-color: #F3E1D0; /* Fondo más claro al enfocar */
+  box-shadow: 0px 0px 10px rgba(255, 87, 51, 0.6); /* Sombra más intensa al enfocar */
+  outline: none; /* Sin contorno predeterminado */
+}
+
+/* Borde adicional detrás del texto */
+.form-outline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 0.5rem; /* Bordes redondeados */
+  border: 2px solid transparent; /* Inicialmente transparente */
+  transition: border-color 0.3s ease; /* Transición para el borde */
+  z-index: -1; /* Colocar detrás del input */
+}
+
+/* Borde visible al enfocar */
+.form-outline input:focus ~ .form-outline::before {
+  border-color: #FF5733; /* Color del borde al enfocar */
+}
+
+/* Estilos para la etiqueta */
+.form-outline label {
+  color: #463F3A; /* Color de la etiqueta */
+  font-size: 1rem; /* Tamaño de fuente de la etiqueta */
+  position: absolute; /* Posición absoluta para etiquetas flotantes */
+  top: 10px; /* Posición original de la etiqueta */
+  left: 15px; /* Distancia desde la izquierda */
+  transition: all 0.3s ease; /* Transición suave para la etiqueta */
+  z-index: 1; /* Asegurar que la etiqueta esté por encima del input */
+}
+
+/* Estilo para la etiqueta cuando el input está enfocado o tiene valor */
+.form-outline input:focus + label,
+.form-outline input:not(:placeholder-shown) + label {
+  top: -25px; /* Mover la etiqueta hacia arriba solo al enfocar */
+  left: 10px; /* Ajustar la posición horizontal */
+  font-size: 0.8rem; /* Reducir tamaño de fuente */
+  color: #FF5733; /* Cambiar color de la etiqueta al enfocar */
+}
+
+.btn-back {
+  background-color: #9c9898 !important;
+}
+
+.title{
+  font-family: 'Open Sans', sans-serif;
+}
+body {
+  overflow: hidden !important;
+  background-color: #D3C4A4; /* También puedes definir el color de fondo aquí */
+}
+
+/* Estilos para los mensajes de error */
 .error-message {
-  font-size: small;
-  color: blueviolet;
+  font-size: 1rem;
   font-weight: bold;
+  color: #b93636 !important;
+  text-align: left;
 }
 
-.form-section-loader {
-  margin-top: 10px;
-  align-items: center;
+/* Estilos para el botón de envío */
+.btn-outline-light {
+  border-color: #eaeaea;
+  color: #eaeaea;
+  padding: 0.75rem 2rem;
+  transition: all 0.3s ease;
 }
 
-@media screen and (max-width: 600px) {
-  .sign-in-main {
-    max-width: 200px;
-  }
+.btn-back-outline-light {
+  border-color: #eaeaea;
+  color: #eaeaea;
+  padding: 0.75rem 2rem;
+  transition: all 0.3s ease;
+}
 
-  .error-main {
-    width: 350px;
-  }
+.btn-outline-light:hover {
+  background-color: #9c9898;
+  color: #000000;
+}
+
+.btn-back-outline-light:hover {
+  background-color: #463F3A !important;
+  color: #ffffff;
+}
+
+
+.btn{
+  background-color: #463F3A;
+}
+
+/* Estilos para enlaces */
+.text-white-50 {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.text-white-50:hover {
+  color: #eaeaea !important;
+  text-decoration: underline;
+}
+
+/* Estilos para los iconos de redes sociales */
+.d-flex a {
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.3s;
+}
+
+.d-flex a:hover {
+  color: #eaeaea;
+}
+
+/* Estilos para el enlace de registro */
+.mb-0 {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.mb-0 a {
+  color: #eaeaea;
+}
+
+.mb-0 a:hover {
+  text-decoration: underline;
+}
+
+/* Estilos del contenedor de errores */
+.error-main {
+  margin-bottom: 1rem;
 }

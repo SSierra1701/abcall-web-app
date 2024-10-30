@@ -5,74 +5,151 @@
   font-family: "Tahoma", sans-serif;
 }
 
+/* Sidebar */
 .sidebar {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
-  background-color: var(--silver);
-  width: 50px;
-  transition: all 0.5s ease;
+  background-color: #463F3A; /* Color principal */
+  color: #e0e0e0;
+  width: 60px;
+  transition: width 0.4s ease;
+  overflow: hidden;
+  box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
+  border-right: 1px solid #5c504a;
+  z-index: 2000;
 }
 
-.active {
+.sidebar.active {
   width: 250px;
 }
 
+/* Botón de menú */
 .menu {
-  position: relative;
-  color: var(--taupe);
-  top: 0.4rem;
+  position: absolute;
+  top: 20px;
   left: 50%;
-  font-size: 1.2rem;
-  line-height: 50px;
   transform: translateX(-50%);
+  font-size: 1.8rem;
   cursor: pointer;
+  transition: all 0.4s ease;
+  color: #e0afa0;
 }
 
-.active .menu {
-  left: 90%;
+.sidebar.active .menu {
+  left: 85%;
+}
+
+/* Contenido principal */
+.content {
+  margin-left: 60px; /* Margen para cuando la barra está recogida */
+  transition: margin-left 0.4s ease;
+}
+
+.content-expanded {
+  margin-left: 250px; /* Ajuste cuando la barra lateral está expandida */
+}
+
+/* Otros estilos de la barra */
+.top .logo {
+  padding: 1.5rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #5c504a;
+}
+
+.sidebar ul {
+  padding-top: 2rem;
+  padding-left: 0;
 }
 
 .sidebar ul li {
-  position: relative;
-  list-style-type: none;
-  height: 50px;
-  width: 90%;
+  list-style: none;
+  margin-bottom: 1.5rem;
+  text-align: center;
 }
 
 .sidebar ul li a {
-  color: var(--taupe);
-  display: inline;
-  align-items: center;
+  color: #f4ede1;
   text-decoration: none;
-  border-radius: 0.8rem;
+  display: flex;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  position: relative;
 }
 
 .sidebar ul li a:hover {
-  background-color: var(--taupe);
-  color: var(--silver);
+  background-color: #6f6763;
+  color: #ffffff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
 
 .sidebar ul li a i {
-  min-width: 50px;
-  text-align: center;
-  height: 50px;
-  border-radius: 12px;
-  line-height: 50px;
+  font-size: 1.5rem;
+  margin-right: 12px;
+  transition: all 0.3s ease;
+  color: #b5b1aa;
 }
 
 .sidebar .nav-item {
-  font-size: 0%;
+  font-size: 0;
+  opacity: 0;
+  transition: all 0.4s ease;
 }
 
-.active .nav-item {
-  font-size: medium;
+.sidebar.active .nav-item {
+  font-size: 1rem;
+  opacity: 1;
   display: inline;
-  transition: all 0.7s ease;
 }
 
 .sidebar ul li a.nav-item-active {
-  background-color: var(--taupe);
-  color: var(--silver);
+  background-color: #7d736c;
+  color: #ffffff;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.15);
+}
+
+.sidebar ul li a.nav-item-active i {
+  color: #ffffff;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #f4ede1;
+  text-align: center;
+}
+
+.title {
+  font-size: 1.4rem ;
+}
+
+/* Estilos para el botón de Sign Out */
+.sign-out-section {
+  margin-top: auto;
+  padding-top: 20px;
+}
+
+.sign-out-button {
+  background-color: transparent;
+  color: #e0afa0;
+  border: none;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.sign-out-button:hover {
+  color: #7d736c;
+}
+
+.sign-out-button i {
+  font-size: 20px;
 }

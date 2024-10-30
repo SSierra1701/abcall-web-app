@@ -50,7 +50,7 @@ export class SignUpClientComponent {
         Validators.minLength(6),
         Validators.pattern('^[0-9]*$'),
       ]),
-      companyName: new FormControl('', [Validators.required]),
+      companyName: new FormControl('', [Validators.required, Validators.minLength(6),],),
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [
         Validators.required,
@@ -77,6 +77,10 @@ export class SignUpClientComponent {
     }
 
     return null;
+  }
+
+  goBack(): void {
+    window.history.back(); // Esto llevará al usuario a la página anterior en el historial
   }
 
   onSubmit() {

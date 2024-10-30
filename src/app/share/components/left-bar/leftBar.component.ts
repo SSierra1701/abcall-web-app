@@ -19,9 +19,9 @@ export class LeftBarComponent {
   updatePosition(): void {
     this.isActive.set(!this.isActive());
     if (this.isActive()) {
-      this.sideBarOutput.emit(250);
+      this.sideBarOutput.emit(350);
     } else {
-      this.sideBarOutput.emit(50);
+      this.sideBarOutput.emit(100);
     }
   }
 }

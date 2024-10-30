@@ -59,6 +59,10 @@ export class SignInAdminFormComponent {
     });
   }
 
+  goBack(): void {
+    window.history.back(); // Esto llevará al usuario a la página anterior en el historial
+  }
+
   onSubmit() {
     if (this.form.invalid) {
       return;

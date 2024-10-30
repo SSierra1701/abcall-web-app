@@ -1,115 +1,184 @@
+/* Reset de márgenes y padding */
 * {
   margin: 0;
   padding: 0;
 }
 
-.sign-in-main {
-  font-family: "Tahoma", sans-serif;
-  padding: 30px 50px;
-  max-width: 350px;
-  background: var(--pale-purple);
-  border-radius: 8px;
-  scrollbar-color: var(--pacific-cyan);
-  flex: 1;
+/* Estilos para el contenedor principal */
+.vh-100 {
+  min-height: 100vh;
+}
+.custom-header {
+  margin-bottom: 23rem; /* Ajusta según el espacio deseado */
+  color: white;
+}
+/* Fondo de la sección y centrar el contenido */
+.subtext {
+  color: #bcb8b1 ;
 }
 
-.sign-in-form {
-  display: flex;
-  flex-direction: column;
-  max-width: 500px;
+/* Estilos de la tarjeta de login */
+.card {
+  background-color: #D6D5CF ;
+  border-radius: 1rem;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-.form-section {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 15px;
+.form-text {
+  color: #463F3A !important; 
 }
 
-.form-section-btn {
-  margin-top: 5px;
-  font-size: large;
-  height: 35px;
-  border-radius: 10px;
-  border-style: none;
+.form-label{
+  font-size: 1rem !important;
 }
 
-.user-section {
+/* Estilos para el cuerpo de la tarjeta */
+.card-body {
+  padding: 2.5rem;
   text-align: center;
 }
 
-.form-section label {
-  font-size: large;
+/* Estilos para encabezados y texto */
+.card-body h2 {
+  color: #eaeaea;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
 }
 
-.form-section input {
-  font-size: large;
-  border-radius: 5px;
-  margin-top: 8px;
-  padding: 10px 20px;
+.card-body p {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1.5rem;
 }
 
-.sign-up-btn {
-  font-size: 20px;
-  color: var(--melon);
+/* Estilos mejorados para los inputs */
+.form-outline {
+  position: relative;
+  margin-bottom: 1.5rem;
 }
 
-.change-type-user {
-  background: var(--melon);
-  font-size: small;
-  border-radius: 50px;
-  border-style: none;
-  box-shadow: 5px 5px 5px var(--taupe);
-  border-color: var(--isabelline);
-  padding: 8px;
-  color: var(--taupe);
-  font-weight: bold;
-  width: 70px;
+.form-outline input {
+  background-color: #D6D5CF; /* Fondo del input */
+  color: #463F3A; /* Color del texto */
+  border: 2px solid #463F3A; /* Borde del input (visible detrás del texto) */
+  border-radius: 0.5rem; /* Bordes redondeados */
+  padding: 0.75rem; /* Espaciado interno */
+  transition: all 0.3s ease; /* Transición suave */
+  font-size: 1rem; /* Tamaño de fuente */
+  width: 100%; /* Ancho completo */
+  position: relative; /* Necesario para el pseudo-elemento del borde */
+  z-index: 1; /* Asegurarse de que el input esté por encima del borde */
 }
 
-.type-on-right {
-  margin-left: -15px;
+/* Estilos al enfocar el input */
+.form-outline input:focus {
+  border-color: #A67A5B; /* Color del borde al enfocar (más vibrante) */
+  background-color: #F3E1D0; /* Fondo más claro al enfocar */
+  box-shadow: 0px 0px 10px rgba(255, 87, 51, 0.6); /* Sombra más intensa al enfocar */
+  outline: none; /* Sin contorno predeterminado */
 }
 
-.type-on-left {
-  z-index: 1;
-  margin-right: -15px;
+/* Borde adicional detrás del texto */
+.form-outline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 0.5rem; /* Bordes redondeados */
+  border: 2px solid transparent; /* Inicialmente transparente */
+  transition: border-color 0.3s ease; /* Transición para el borde */
+  z-index: -1; /* Colocar detrás del input */
 }
 
-.error-main {
-  display: flex;
-  flex-direction: column;
-  width: 360px;
-  margin-bottom: 10px;
+/* Borde visible al enfocar */
+.form-outline input:focus ~ .form-outline::before {
+  border-color: #FF5733; /* Color del borde al enfocar */
 }
 
+/* Estilos para la etiqueta */
+.form-outline label {
+  color: #463F3A; /* Color de la etiqueta */
+  font-size: 1rem; /* Tamaño de fuente de la etiqueta */
+  position: absolute; /* Posición absoluta para etiquetas flotantes */
+  top: 10px; /* Posición original de la etiqueta */
+  left: 15px; /* Distancia desde la izquierda */
+  transition: all 0.3s ease; /* Transición suave para la etiqueta */
+  z-index: 1; /* Asegurar que la etiqueta esté por encima del input */
+}
+
+/* Estilo para la etiqueta cuando el input está enfocado o tiene valor */
+.form-outline input:focus + label,
+.form-outline input:not(:placeholder-shown) + label {
+  top: -25px; /* Mover la etiqueta hacia arriba solo al enfocar */
+  left: 10px; /* Ajustar la posición horizontal */
+  font-size: 0.8rem; /* Reducir tamaño de fuente */
+  color: #FF5733; /* Cambiar color de la etiqueta al enfocar */
+}
+
+
+
+/* Estilos para los mensajes de error */
 .error-message {
-  font-size: small;
-  color: blueviolet;
+  font-size: 1rem;
   font-weight: bold;
+  color: #f76c6c;
+  text-align: left;
 }
 
-.btn-disable {
-  background: var(--taupe);
-  color: var(--isabelline);
+/* Estilos para el botón de envío */
+.btn-outline-light {
+  border-color: #eaeaea;
+  color: #eaeaea;
+  padding: 0.75rem 2rem;
+  transition: all 0.3s ease;
 }
 
-.btn-enable {
-  background: var(--melon);
-  color: var(--taupe);
-  cursor: pointer;
+.btn-outline-light:hover {
+  background-color: #9c9898;
+  color: #000000;
 }
 
-.form-section-loader {
-  margin-top: 10px;
-  align-items: center;
+.btn{
+  background-color: #463F3A;
 }
 
-@media screen and (max-width: 600px) {
-  .sign-in-main {
-    max-width: 200px;
-  }
+/* Estilos para enlaces */
+.text-white-50 {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
 
-  .error-main {
-    width: 350px;
-  }
+.text-white-50:hover {
+  color: #eaeaea !important;
+  text-decoration: underline;
+}
+
+/* Estilos para los iconos de redes sociales */
+.d-flex a {
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.3s;
+}
+
+.d-flex a:hover {
+  color: #eaeaea;
+}
+
+/* Estilos para el enlace de registro */
+.mb-0 {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.mb-0 a {
+  color: #eaeaea;
+}
+
+.mb-0 a:hover {
+  text-decoration: underline;
+}
+
+/* Estilos del contenedor de errores */
+.error-main {
+  margin-bottom: 1rem;
 }

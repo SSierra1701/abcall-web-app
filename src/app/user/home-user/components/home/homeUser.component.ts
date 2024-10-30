@@ -11,11 +11,17 @@ import { LeftBarItemI } from '../../../../share/types/leftBarItemI';
   imports: [RouterOutlet, LeftBarComponent],
 })
 export class HomeUserComponent {
-  leftPosition = signal<number>(50);
+  leftPosition = signal<number>(100);
 
   updateLeftPosition(position: number) {
     this.leftPosition.set(position);
   }
+
+  logout() {
+    // Lógica para cerrar sesión
+    console.log("Cerrar sesión");
+  }
+  
 
   barItems: LeftBarItemI[] = [
     {
@@ -28,5 +34,10 @@ export class HomeUserComponent {
       icon: 'bx bxs-message-rounded-add',
       label: 'Generate PQR',
     },
+    {
+      routeLink: 'sign-out',
+      icon: 'bx bx-log-out',
+      label: 'Sign Out',
+    }
   ];
 }

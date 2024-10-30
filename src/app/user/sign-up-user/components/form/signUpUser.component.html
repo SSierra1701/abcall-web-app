@@ -1,149 +1,148 @@
 <ng-container *ngIf="data$ | async as data">
-  <div class="sign-up-container">
-    <main *ngIf="data.serverError$" class="error-main">
-      <server-error-c [error]="data.serverError$.message"></server-error-c>
-    </main>
-    <main class="sign-up-main">
-      <form class="sign-up-form" [formGroup]="form" (ngSubmit)="onSubmit()">
-        <section class="form-section">
-          <label for="name">Name</label>
-          <input
-            class="input-form"
-            type="text"
-            id="name"
-            placeholder="Name"
-            formControlName="name"
-          />
-          <div *ngIf="name?.touched">
-            <p *ngIf="name?.hasError('minlength')" class="error-message">
-              Minimum 6 characters
-            </p>
-            <p *ngIf="name?.hasError('required')" class="error-message">
-              Required
-            </p>
-          </div>
-        </section>
+  <section style="background-color: #D3C4A4; min-height: 100vh;">
+    <div class="d-flex justify-content-center align-items-center h-100">
+      <div class="px-4 py-5 text-center text-lg-start" style="border-radius: 15px; max-width: 600px; width: 100%; margin: auto;">
+        <div class="container">
+          <div class="row gx-lg-5 align-items-center">
+            <div class="col-lg-12 mb-5 mb-lg-0">
+              <div class="card">
+                <div class="card-body py-5 px-md-5">
+                  <h2 class="title form-text fw-bold mb-2 text-uppercase">User Register</h2>
+                  <p class="form-text">Complete your information</p>
+                  <form class="sign-up-form" [formGroup]="form" (ngSubmit)="onSubmit()">
 
-        <section class="form-section">
-          <label for="email">Email</label>
-          <input
-            class="input-form"
-            type="text"
-            id="email"
-            placeholder="email"
-            formControlName="email"
-          />
-          <div *ngIf="email?.touched">
-            <p *ngIf="email?.hasError('email')" class="error-message">
-              Invalid Email
-            </p>
-            <p *ngIf="email?.hasError('required')" class="error-message">
-              Required
-            </p>
-          </div>
-        </section>
+                    <section class="form-section">
+                      <div data-mdb-input-init class="form-outline form-white mb-4">
+                        <input
+                          type="text"
+                          id="name"
+                          class="form-control form-control-lg"
+                          formControlName="name"
+                          placeholder=""
+                        />
+                        <label class="text-under form-text form-label" for="name">Name</label>
+                        <div *ngIf="name?.touched">
+                          <p *ngIf="name?.hasError('minlength')" class="error-message">Minimum 6 characters</p>
+                          <p *ngIf="name?.hasError('required')" class="error-message">Required</p>
+                        </div>
+                      </div>
+                    </section>
 
-        <section class="form-section">
-          <label for="id">Id</label>
-          <input
-            class="input-form"
-            type="text"
-            id="id"
-            placeholder="Id"
-            formControlName="id"
-          />
-          <div *ngIf="id?.touched">
-            <p *ngIf="id?.hasError('minlength')" class="error-message">
-              Minimum 6 characters
-            </p>
-            <p *ngIf="id?.hasError('pattern')" class="error-message">
-              Is numeric
-            </p>
-            <p *ngIf="id?.hasError('required')" class="error-message">
-              Required
-            </p>
-          </div>
-        </section>
+                    <section class="form-section">
+                      <div data-mdb-input-init class="form-outline form-white mb-4">
+                        <input
+                          type="email"
+                          id="email"
+                          class="form-control form-control-lg"
+                          formControlName="email"
+                          placeholder=""
+                        />
+                        <label class="text-under form-text form-label" for="email">Email</label>
+                        <div *ngIf="email?.touched">
+                          <p *ngIf="email?.hasError('email')" class="error-message">Invalid Email</p>
+                          <p *ngIf="email?.hasError('required')" class="error-message">Required</p>
+                        </div>
+                      </div>
+                    </section>
 
-        <section class="form-section">
-          <label for="password">Password</label>
-          <input
-            class="input-form"
-            type="text"
-            id="password"
-            placeholder="Password"
-            formControlName="password"
-          />
-          <div *ngIf="password?.touched">
-            <p *ngIf="password?.hasError('minlength')" class="error-message">
-              Minimum 6 characters
-            </p>
-            <p *ngIf="password?.hasError('required')" class="error-message">
-              Required
-            </p>
-          </div>
-        </section>
+                    <section class="form-section">
+                      <div data-mdb-input-init class="form-outline form-white mb-4">
+                        <input
+                          type="text"
+                          id="id"
+                          class="form-control form-control-lg"
+                          formControlName="id"
+                          placeholder=""
+                        />
+                        <label class="text-under form-text form-label" for="id">Id</label>
+                        <div *ngIf="id?.touched">
+                          <p *ngIf="id?.hasError('minlength')" class="error-message">Minimum 6 characters</p>
+                          <p *ngIf="id?.hasError('pattern')" class="error-message">Is numeric</p>
+                          <p *ngIf="id?.hasError('required')" class="error-message">Required</p>
+                        </div>
+                      </div>
+                    </section>
 
-        <section class="form-section">
-          <label for="cpassword">Confirm Password</label>
-          <input
-            class="input-form"
-            type="text"
-            id="cpassword"
-            placeholder="Password"
-            formControlName="cPassword"
-          />
-          <div *ngIf="cPassword?.touched">
-            <p
-              *ngIf="this.form.errors?.['passwordMatch']"
-              class="error-message"
-            >
-              Passwords don't match
-            </p>
-          </div>
-        </section>
+                    <section class="form-section">
+                      <div data-mdb-input-init class="form-outline form-white mb-4">
+                        <input
+                          type="password"
+                          id="password"
+                          class="form-control form-control-lg"
+                          formControlName="password"
+                          placeholder=""
+                        />
+                        <label class="text-under form-text form-label" for="password">Password</label>
+                        <div *ngIf="password?.touched">
+                          <p *ngIf="password?.hasError('minlength')" class="error-message">Minimum 6 characters</p>
+                          <p *ngIf="password?.hasError('required')" class="error-message">Required</p>
+                        </div>
+                      </div>
+                    </section>
 
-        <section class="form-section">
-          <label for="nit">Company Nit</label>
-          <input
-            class="input-form"
-            type="text"
-            id="nit"
-            placeholder="nit"
-            formControlName="nit"
-          />
-          <div *ngIf="nit?.touched">
-            <p *ngIf="nit?.hasError('minlength')" class="error-message">
-              Minimum 6 characters
-            </p>
-            <p *ngIf="nit?.hasError('pattern')" class="error-message">
-              Is numeric
-            </p>
-            <p *ngIf="nit?.hasError('required')" class="error-message">
-              Required
-            </p>
-          </div>
-        </section>
+                    <section class="form-section">
+                      <div data-mdb-input-init class="form-outline form-white mb-4">
+                        <input
+                          type="password"
+                          id="cpassword"
+                          class="form-control form-control-lg"
+                          formControlName="cPassword"
+                          placeholder=""
+                        />
+                        <label class="text-under form-text form-label" for="cpassword">Confirm Password</label>
+                        <div *ngIf="cPassword?.touched">
+                          <p *ngIf="this.form.errors?.['passwordMatch']" class="error-message">Passwords don't match</p>
+                        </div>
+                      </div>
+                    </section>
 
-        <section *ngIf="!data.isLoading$" class="form-section">
-          <button
-            [ngClass]="{
-              'form-section-btn': true,
-              'btn-disable': form.invalid,
-              'btn-enable': form.valid
-            }"
-            type="submit"
-          >
-            Register
-          </button>
-        </section>
-        <section
-          *ngIf="data.isLoading$"
-          class="form-section form-section-loader"
-        >
-          <loader-c></loader-c>
-        </section>
-      </form>
-    </main>
-  </div>
+                    <section class="form-section">
+                      <div data-mdb-input-init class="form-outline form-white mb-4">
+                        <input
+                          type="text"
+                          id="nit"
+                          class="form-control form-control-lg"
+                          formControlName="nit"
+                          placeholder=""
+                        />
+                        <label class="text-under form-text form-label" for="nit">Company Nit</label>
+                        <div *ngIf="nit?.touched">
+                          <p *ngIf="nit?.hasError('minlength')" class="error-message">Minimum 6 characters</p>
+                          <p *ngIf="nit?.hasError('pattern')" class="error-message">Is numeric</p>
+                          <p *ngIf="nit?.hasError('required')" class="error-message">Required</p>
+                        </div>
+                      </div>
+                    </section>
+
+                    <section *ngIf="!data.isLoading$" class="form-section">
+                      <div class="d-flex justify-content-between">
+                        <button
+                          type="button"
+                          class="btn btn-back btn-back-outline-light btn-lg px-5"
+                          (click)="goBack()"
+                        >
+                          Back
+                        </button>
+                        <button
+                          [ngClass]="{'btn-disable': form.invalid, 'btn-enable': form.valid}"
+                          type="submit"
+                          class="btn btn-outline-light btn-lg px-5"
+                        >
+                          Register
+                        </button>
+                      </div>
+                    </section>
+
+                    <section *ngIf="data.isLoading$" class="form-section form-section-loader">
+                      <loader-c></loader-c>
+                    </section>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </ng-container>
