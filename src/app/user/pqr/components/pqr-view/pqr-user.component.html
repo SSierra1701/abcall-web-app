@@ -1,4 +1,141 @@
-<div>
-  <h1>PQRS</h1>
-  <h2>LIST ALL PQRS</h2>
+<div class="pqrs-main-container">
+  
+
+  <div class="pqrs-content">
+    <div class="pqrs-table-container">
+      <h2>PQRS - Requests list</h2>
+      <p>Visualize all your pqr request. Select each one to resolve with the AI generated solution or see details.</p>
+      <div class="pqrs-header">
+        <div class="filter-select">
+          <label for="filter">Filter by:</label>
+          <select id="filter">
+            <option value="all">All</option>
+            <option value="status">State</option>
+            <option value="user">User</option>
+          </select>
+        </div>
+        <button class="add-pqr-button" (click)="navigateToCreatePQR()"><span class="icon">+</span>Add PQR</button>
+      </div>
+      <div class="table-responsive">
+        <table class="pqrs-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>User</th>
+              <th>Date</th>
+              <th>Type</th>
+              <th>State</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Andres</td>
+              <td>21/08/2024</td>
+              <td>Cambio de pedido</td>
+              <td>Activo</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Andres</td>
+              <td>21/08/2024</td>
+              <td>Cambio de pedido</td>
+              <td>Activo</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Andres</td>
+              <td>21/08/2024</td>
+              <td>Cambio de pedido</td>
+              <td>Activo</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Andres</td>
+              <td>21/08/2024</td>
+              <td>Cambio de pedido</td>
+              <td>Activo</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Andres</td>
+              <td>21/08/2024</td>
+              <td>Cambio de pedido</td>
+              <td>Activo</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Andres</td>
+              <td>21/08/2024</td>
+              <td>Cambio de pedido</td>
+              <td>Activo</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Andres</td>
+              <td>21/08/2024</td>
+              <td>Cambio de pedido</td>
+              <td>Activo</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Andres</td>
+              <td>21/08/2024</td>
+              <td>Cambio de pedido</td>
+              <td>Activo</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Andres</td>
+              <td>21/08/2024</td>
+              <td>Cambio de pedido</td>
+              <td>Activo</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Andres</td>
+              <td>21/08/2024</td>
+              <td>Cambio de pedido</td>
+              <td>Activo</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Andres</td>
+              <td>21/08/2024</td>
+              <td>Cambio de pedido</td>
+              <td>Activo</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Andres</td>
+              <td>21/08/2024</td>
+              <td>Cambio de pedido</td>
+              <td>Activo</td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+      <div class="pagination-container">
+        <!-- Agrega los controles de paginación aquí -->
+        <button>Previous</button>
+        <span>Page <strong>1</strong> of <strong>2</strong></span>
+        <button>Next</button>
+      </div>
+    </div>
+
+    <div class="pqrs-details-card">
+      <div class="details-header">
+        <h3>PQR 1 Details</h3>
+        <span>ID: 1</span>
+      </div>
+      <div class="details-content">
+        <p><strong>User:</strong> Andres</p>
+        <p><strong>Date:</strong> 21/05/2024</p>
+        <p><strong>State:</strong> Activo</p>
+        <p><strong>Description:</strong></p>
+        <p class="description">Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen.</p>
+      </div>
+    </div>
+  </div>
 </div>

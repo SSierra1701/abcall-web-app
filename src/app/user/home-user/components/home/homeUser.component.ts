@@ -1,5 +1,5 @@
 import { Component, HostListener, OnInit, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { LeftBarComponent } from '../../../../share/components/left-bar/leftBar.component';
 import { LeftBarItemI } from '../../../../share/types/leftBarItemI';
 
@@ -12,6 +12,7 @@ import { LeftBarItemI } from '../../../../share/types/leftBarItemI';
 })
 export class HomeUserComponent {
   leftPosition = signal<number>(100);
+  constructor(private router: Router) {}
 
   updateLeftPosition(position: number) {
     this.leftPosition.set(position);
@@ -22,6 +23,9 @@ export class HomeUserComponent {
     console.log("Cerrar sesión");
   }
   
+  navigateToCreatePQR() {
+    this.router.navigate(['create-pqr']);
+  }
 
   barItems: LeftBarItemI[] = [
     {

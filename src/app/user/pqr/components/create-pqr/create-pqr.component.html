@@ -1,0 +1,31 @@
+<div class="modal-backdrop">
+    <div class="modal-card">
+        <button class="close-btn" (click)="closeForm()">X</button>
+        <h2 class="modal-header">Create PQR</h2>
+        <form class="modal-form" (ngSubmit)="onSubmit()" #pqrForm="ngForm" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <input type="text" name="title" required ngModel>
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea name="description" required ngModel></textarea>
+            </div>
+            <div class="form-group">
+                <label for="files">Images:</label>
+                <input type="file" name="files" (change)="onFileChange($event)" multiple>
+            </div>
+            <div class="form-group">
+                <label for="userPriority">Priority:</label>
+                <select name="userPriority" required ngModel>
+                    <option value="1">High</option>
+                    <option value="2">Medium</option>
+                    <option value="3">Low</option>
+                </select>
+            </div>
+            <button type="submit" class="create-btn">Create</button>
+        </form>
+    </div>
+</div>
+
+  

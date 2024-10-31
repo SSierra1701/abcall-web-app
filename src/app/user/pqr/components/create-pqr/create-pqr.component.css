@@ -1,0 +1,99 @@
+/* Archivo: create-pqr.component.css */
+
+/* Fondo oscuro translúcido detrás del modal */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  /* Contenedor del modal */
+  .modal-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 30px;
+    width: 500px;
+    max-width: 90%;
+    position: relative;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    border: 2px solid #463F3A;
+  }
+  
+  /* Encabezado del modal */
+  .modal-header {
+    font-size: 1.5rem;
+    color: #463F3A;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Botón de cerrar en la esquina superior derecha */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    background-color: #FF0000; /* Fondo rojo */
+    border: none;
+    color: #FFFFFF; /* Texto blanco */
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 50%; /* Redondear botón */
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+/* Efecto al pasar el cursor por encima */
+.close-btn:hover {
+    background-color: #D40000; /* Color rojo oscuro al hacer hover */
+    transform: scale(1.1); /* Aumenta ligeramente el tamaño */
+}
+
+  
+  /* Estilos de formulario */
+  .modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group label {
+    margin-bottom: 5px;
+    color: #463F3A;
+  }
+  
+  .form-group input, .form-group select, .form-group textarea {
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  .create-btn {
+    background-color: #463F3A;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1rem;
+    margin-top: 20px;
+  }
+  
